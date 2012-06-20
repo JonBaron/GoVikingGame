@@ -1,0 +1,9 @@
+F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGame\bin\GoVikingGame.dll
+F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGame\bin\GoVikingGame.pdb
+F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGame\bin\EntityFramework.dll
+F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGame\bin\EntityFramework.xml
+F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGame\obj\Debug\GoVikingGame.csprojResolveAssemblyReference.cache
+F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGame\obj\Debug\GoVikingGame.dll
+F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGame\obj\Debug\GoVikingGame.pdb
+F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGame\bin\GameEngine.dll
+F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGame\bin\GameEngine.pdb

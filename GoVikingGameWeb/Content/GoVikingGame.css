@@ -1,0 +1,265 @@
+body
+{
+/*zoom: 200%;*/
+
+    font-size: 1em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-radial-gradient(center top, ellipse farthest-corner, #DEFFF7 0%, #5F6578 100%);
+
+    /* Mozilla Firefox */ 
+    background-image: -moz-radial-gradient(center top, ellipse farthest-corner, #DEFFF7 0%, #5F6578 100%);
+
+    /* Opera */ 
+    background-image: -o-radial-gradient(center top, ellipse farthest-corner, #DEFFF7 0%, #5F6578 100%);
+
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(radial, center top, 0, top, 561, color-stop(0, #DEFFF7), color-stop(1, #5F6578));
+
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-radial-gradient(center top, ellipse farthest-corner, #DEFFF7 0%, #5F6578 100%);
+
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: radial-gradient(ellipse farthest-corner at top, #DEFFF7 0%, #5F6578 100%);    
+}
+
+header,
+footer,
+nav,
+section {
+    display: block;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+
+fieldset 
+{
+    border:1px solid red;
+    padding:0 1.4em 1.4em 1.4em;
+    margin:0 0 1.5em 0;
+}
+
+legend 
+{
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+textarea 
+{
+    min-height: 75px;
+}
+
+.editor-label 
+{
+    margin: 1em 0 0 0;
+}
+
+.editor-field 
+{
+    margin:0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ff00ee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+
+/* Game Styles 
+-----------------------------------------------------------*/
+
+.logo {
+    width: 1890px;
+    text-align: center;
+    font-family: Garamond, serif;
+    text-wrap: none;
+    line-height: 0em;
+    color: #ffa200;
+    font-weight: bold;
+    font-size: 70px;
+    text-shadow: 0px 0px 0 rgb(205,112,-50),1px 1px 0 rgb(184,91,-71),2px 2px 0 rgb(162,69,-93),3px 3px 0 rgb(140,47,-115), 4px 4px 0 rgb(118,25,-137),5px 5px 4px rgba(0,0,0,0.45),5px 5px 1px rgba(0,0,0,0.5),0px 0px 4px rgba(0,0,0,.2);
+}
+
+.gameinfo  {
+    padding: 1em;
+    width:1890px;
+    background-color: burlywood;
+    -webkit-box-shadow: 0px 0px 18px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 18px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 18px rgba(0, 0, 0, 1);
+ 
+}
+
+.resources {
+    font-size: 40px;
+    padding-right: 20px;
+    padding-left: 10px;
+    background-color: #ffdeb8;
+    -webkit-box-shadow: 0px 0px 18px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 18px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 18px rgba(0, 0, 0, 1);
+}
+
+
+table.mapview {
+    background-color: rgba(78,100,40,8);
+    margin: 10px 0;
+    border-collapse: collapse;
+
+    -webkit-box-shadow: 0px 0px 20px rgba(78,100,40, 0.86);
+    -moz-box-shadow:    0px 0px 20px rgba(78,100,40, 0.86);
+    box-shadow:         0px 0px 20px rgba(78,100,40, 0.86);
+
+}
+
+.mapview tr {
+    border: 0px solid blue;
+}
+
+.mapview th {
+}
+
+.mapview td {
+    padding: 0px 0px;
+    border: 0px dotted;
+    background:transparent;
+}
+
+
+.buildmenu {
+
+    width: 350px;
+    border:solid 1px black;
+    padding: .5em 1em .5em;
+    background-color: burlywood;
+    -webkit-box-shadow: 0px 0px 18px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 18px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 18px rgba(0, 0, 0, 1);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+
+}
+
+h3.buildmenu {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.buildmenucost {
+    text-wrap: none;
+}
+
+
+/*http://webdesignerwall.com/tutorials/css3-gradient-buttons*/
+
+.button {
+    
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: left;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 1em .5em;
+    margin-bottom: .5em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.button:hover {
+	text-decoration: none;
+}
+.button:active {
+	position: relative;
+	top: 1px;
+}
+
+
+.orange {
+	color: #fef4e9;
+	border: solid 1px #da7c0c;
+	background: #f78d1d;
+	background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+	background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+}
+.orange:hover {
+	background: #f47c20;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+	background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+}
+.orange:active {
+	color: #fcd3a5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+	background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
+}
+
+.blue {
+	color: #fef4e9;
+	border: solid 1px #0c0eda;
+	background: #1d79f7;
+	background: -webkit-gradient(linear, left top, left bottom, from(#1a5ffa), to(#2022f4));
+	background: -moz-linear-gradient(top,  #1a5ffa,  #2022f4);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#1a5ffa', endColorstr='#2022f4');
+}
+.blue:hover {
+	background: #0c0eda;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2022f4), to(#4546e2));
+	background: -moz-linear-gradient(top,  #2022f4,  #4546e2);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#2022f4', endColorstr='#4546e2');
+}
+.blue:active {
+	color: #fcd3a5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#4041e5), to(#4546e2));
+	background: -moz-linear-gradient(top,  #4041e5,  #4546e2);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#4041e5', endColorstr='#4546e2');
+}
+.grey {
+	color: #fef4e9;
+	border: solid 1px darkgrey;
+	background: grey;
+}
+.grey:hover {
+	background: lightgrey;
+}
+.grey:active {
+	background: black;
+}
+

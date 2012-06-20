@@ -1,0 +1,106 @@
+﻿@using GameEngine.GameTypes
+@using GameEngine.PlayerItem
+@model GoVikingGameWeb.Models.GameModel
+@{
+    ViewBag.Title = "Go Vik'ing game!";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript" src="/Scripts/GoVikingGame.js"></script>
+
+<h2 class="logo">@ViewBag.Title</h2>
+<p class="gameinfo">
+    There is @Model.GameViksCount village on this server<br />
+    Your id: @Model.PlayerId<br />
+    <span class="resources">
+        <img src="../../Content/GUI/food.png" alt="Food" /> @Model.Resources.food (+@Model.Resources.foodProduction)</span>
+    <span class="resources">
+        <img src="../../Content/GUI/wood.png" alt="Wood" /> @Model.Resources.wood (+@Model.Resources.woodProduction)</span>
+    <span class="resources">
+        <img src="../../Content/GUI/stone.png" alt="Stone" /> @Model.Resources.stone (+@Model.Resources.stoneProduction)</span>
+    <span class="resources">
+        <img src="../../Content/GUI/gold.png" alt="Gold" /> @Model.Resources.gold (+@Model.Resources.goldProduction)</span>
+    <span class="resources">
+        <img src="../../Content/GUI/workers.png" alt="Workers" /> @Model.Resources.workers</span>
+</p>
+<style>
+    table.mapview_computed {
+        width:@(Model.MapRenderWidth)px;
+      }
+
+    .mapview_computed img {
+        width: @(Model.MapRenderWidth / Model.UserSessionMap.Count)px;
+        height: @(Model.MapRenderWidth / Model.UserSessionMap.Count)px;
+        float: left;
+    }
+
+    
+</style>
+<table class="mapview_computed mapview">
+    @foreach (var line in Model.UserSessionMap)
+    {
+    
+        <tr>
+            <td>
+                @foreach (PlayerTile t in line)
+                {
+                    <img src="../../Content/Tiles/@t.Tile.ImageFile" alt="@t.Tile.Name" id="@t.Id"    />
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+
+@*Create build menues for tiles*@
+
+@foreach (var tiletype in Model.TileTypes.Where(e => e.Buildable != null || e.CreateAble!=null))
+{
+    
+    <nav class="buildmenu" id="@tiletype.Name" style="display: none;">
+        
+        <h3>@tiletype.FriendlyName</h3>
+
+        @*Warriors*@        
+        @foreach (var type in tiletype.CreateAble)
+        {
+            GameEngine.GameTypes.Warrior warrior = Model.WarriorTypes.Where(e => e.kind.Equals(type)).FirstOrDefault();
+
+            <a href="#" class="button blue" style="width: 90%;">
+                <b>@warrior.FriendlyName</b><br />
+                <span class="buildmenucost">Cost: @warrior.FoodCost food @warrior.WoodCost wood @warrior.GoldCost gold
+                </span>
+                <br />
+                @warrior.Description
+            </a>
+            <br />
+        }
+
+        @*Buldings*@
+
+        @foreach (var type in tiletype.Buildable)
+        {
+            Tile tile = Model.TileTypes.Where(e => e.kind.Equals(type)).FirstOrDefault();
+
+            <a href="#" class="button orange" style="width: 90%;">
+                <b>@tile.FriendlyName</b><br />
+                <span class="buildmenucost">Cost: @tile.FoodCost food @tile.StoneCost stone @tile.WoodCost wood @tile.GoldCost gold
+                </span>
+                <br />
+                @tile.Description
+            </a>
+            <br />
+
+        }
+        
+        @if (tiletype.Buildable.Length+tiletype.CreateAble.Length==0)
+        {
+            <span>Nothing to do here yet...</span><br/><br/>
+        }
+
+       
+        <a href="#" class="button grey BuildMenuClose" style="width: 90%; text-align: center;">
+            <b>Close</b>
+        </a>
+    </nav>
+    
+}   

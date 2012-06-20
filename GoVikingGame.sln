@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoVikingGameWeb", "GoVikingGameWeb\GoVikingGameWeb.csproj", "{0A532BC5-5876-44DD-9DC1-5A202304134F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoVikingGameEngine", "GoVikingGameEngine\GoVikingGameEngine.csproj", "{205EAF7E-CE42-436A-875D-58D3BFB0AE9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoVikingGameEngineTest", "GoVikingGameEngineTest\GoVikingGameEngineTest.csproj", "{BC6CECE9-9F13-422C-A6D4-C044C5B1B7D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A532BC5-5876-44DD-9DC1-5A202304134F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A532BC5-5876-44DD-9DC1-5A202304134F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A532BC5-5876-44DD-9DC1-5A202304134F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A532BC5-5876-44DD-9DC1-5A202304134F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{205EAF7E-CE42-436A-875D-58D3BFB0AE9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{205EAF7E-CE42-436A-875D-58D3BFB0AE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{205EAF7E-CE42-436A-875D-58D3BFB0AE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{205EAF7E-CE42-436A-875D-58D3BFB0AE9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC6CECE9-9F13-422C-A6D4-C044C5B1B7D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC6CECE9-9F13-422C-A6D4-C044C5B1B7D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC6CECE9-9F13-422C-A6D4-C044C5B1B7D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC6CECE9-9F13-422C-A6D4-C044C5B1B7D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
