@@ -22,7 +22,7 @@ namespace GoVikingGameWeb.Controllers
 
             
 
-            var gameModel = new GameModel();
+            var gameModel = new PlayerVikModel();
             gameModel.PlayerId = Session.SessionID;
             gameModel.TileTypes = game.TileTypes;
             gameModel.WarriorTypes = game.WarriorTypes;

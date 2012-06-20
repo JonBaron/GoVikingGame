@@ -7,9 +7,8 @@ using GameEngine.PlayerItem;
 
 namespace GoVikingGameWeb.Models
 {
-    public class GameModel
+    public class PlayerVikModel
     {
-
         public string PlayerId;
         public int GameViksCount;
         public Map UserSessionMap;
@@ -17,7 +16,5 @@ namespace GoVikingGameWeb.Models
         public List<Tile> TileTypes;
         public List<GameEngine.GameTypes.Warrior> WarriorTypes;
         public int MapRenderWidth;
-
-
     }
 }
