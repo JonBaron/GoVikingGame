@@ -46,10 +46,10 @@
     <Compile Include="PlayerItem\Ship.cs" />
     <Compile Include="PlayerItem\Warrior.cs" />
     <Compile Include="GameInititializer.cs" />
-    <Compile Include="GameTypes\Tile.cs" />
+    <Compile Include="GameTypes\TileType.cs" />
     <Compile Include="PlayerItem\Resources.cs" />
     <Compile Include="GameTypes\Ship.cs" />
-    <Compile Include="GameTypes\Warroir.cs" />
+    <Compile Include="GameTypes\WarriorType.cs" />
     <Compile Include="PlayerItem\Vik.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
