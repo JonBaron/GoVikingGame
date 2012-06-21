@@ -125,10 +125,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\GameModels.cs" />
+    <Compile Include="Models\GameViewModel.cs" />
+    <Compile Include="Models\PlayerResponseModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +185,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\GoVikingGame.css" />
     <Content Include="Scripts\GoVikingGame.js" />
+    <Content Include="Views\Player\Build.aspx" />
+    <Content Include="Views\Player\Resources.aspx" />
+    <Content Include="Views\Player\Train.aspx" />
+    <Content Include="Views\Player\Message.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

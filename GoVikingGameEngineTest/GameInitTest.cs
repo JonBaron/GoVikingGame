@@ -35,7 +35,7 @@ namespace GoVikingGameEngineTest
         [TestMethod]
         public void MapTest()
         {
-            Map defaultMap = GameInititializer.CreateMap(GameInititializer.map2,  game.TileTypes);
+            Map defaultMap = GameInititializer.CreateMap(GameInititializer.defaultMap,  game.TileTypes);
 
             int y = 0;
             int x = 0;
@@ -48,7 +48,7 @@ namespace GoVikingGameEngineTest
    
                     Assert.IsNotNull(tile);
 
-                    Console.Write(tile.Tile.Name.PadRight(15).Substring(0,10) + " | ");
+                    Console.Write(tile.TileType.Name.PadRight(15).Substring(0,10) + " | ");
                     x++;
                 }
                 y++;
@@ -62,7 +62,7 @@ namespace GoVikingGameEngineTest
         [TestMethod]
         public void AddPlayersTest()
         {
-            game.AddPlayer("asdf", "Test1", "No name", GameInititializer.CreateMap(GameInititializer.map2,game.TileTypes));
+            game.AddPlayer("asdf", "Test1", "No name", GameInititializer.CreateMap(GameInititializer.defaultMap,game.TileTypes));
         }
 
         [TestMethod]

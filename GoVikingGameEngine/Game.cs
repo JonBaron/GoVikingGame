@@ -10,8 +10,8 @@ namespace GameEngine
     {
 
         public List<PlayerItem.Vik> Viks; // player villages .. i en "Vik"
-        public List<GameTypes.Warrior> WarriorTypes;
-        public List<GameTypes.Tile> TileTypes;
+        public List<GameTypes.WarriorType> WarriorTypes;
+        public List<GameTypes.TileType> TileTypes;
 
         public Game()
         {

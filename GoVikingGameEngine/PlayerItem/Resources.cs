@@ -20,11 +20,11 @@ namespace GameEngine.PlayerItem
 
         public Resources()
         {
-            food = 100;
-            stone = 100;
-            wood = 100;
-            gold = 0;
-            workers = 5;
+            food = 1000;
+            stone = 1000;
+            wood = 1000;
+            gold = 100;
+            workers = 10;
         }
 
         public void Produce()

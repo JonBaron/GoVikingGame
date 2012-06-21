@@ -33,6 +33,12 @@ namespace GoVikingGameWeb
                 new { controller = "Game", action = "Default", id = UrlParameter.Optional } // Parameter defaults
             );
 
+            routes.MapRoute(
+                "Player", // Route name
+                "{controller}/{action}/{id}", // URL with parameters
+                new { controller = "Player", action = "Build", id = UrlParameter.Optional } // Parameter defaults
+            );
+
         }
 
         protected void Application_Start()
@@ -53,20 +59,21 @@ namespace GoVikingGameWeb
         {
 
 
-            GameEngine.Game gameEngine = Application[MvcApplication.GameInstanse] as GameEngine.Game;
+            GameEngine.Game gameEngine = Application[GameInstanse] as Game;
 
 
-            int[] map = null;
-            if (gameEngine.Viks.Count() % 2 == 1)
-            {
-                map =  GameInititializer.map2;
-            }
-            else
-            {
-                map =  GameInititializer.map3;
-            }
+            // TODO: Different maps for player. Eventueally map generator
+            //int[] map = null;
+            //if (gameEngine.Viks.Count() % 2 == 1)
+            //{
+            //    map =  GameInititializer.map2;
+            //}
+            //else
+            //{
+            //    map =  GameInititializer.defaultMap;
+            //}
 
-            gameEngine.AddPlayer(Session.SessionID, "test", "no name",GameInititializer.CreateMap(map, gameEngine.TileTypes));
+            gameEngine.AddPlayer(Session.SessionID, "test", "no name",GameInititializer.CreateMap(GameInititializer.defaultMap, gameEngine.TileTypes));
 
         }
     }

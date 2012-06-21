@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GameEngine.GameTypes;
 
 namespace GameEngine.PlayerItem
 {
@@ -75,10 +76,10 @@ namespace GameEngine.PlayerItem
                     building.TicksLeftToCompleteion--;
                     if (building.TicksLeftToCompleteion==0) // it is complete
                     {
-                        resources.UpdateProduction( building.Tile.FoodProduction, 
-                                                    building.Tile.StoneProduction, 
-                                                    building.Tile.WoodProduction, 
-                                                    building.Tile.GoldProduction);
+                        resources.UpdateProduction( building.TileType.FoodProduction, 
+                                                    building.TileType.StoneProduction, 
+                                                    building.TileType.WoodProduction, 
+                                                    building.TileType.GoldProduction);
                     }
                 }
                 
@@ -90,12 +91,12 @@ namespace GameEngine.PlayerItem
         {
 
             // build in barracks. One Barrack can build one unit
-            var barrckcs = from building in buildings where building.Tile.Name.Equals("Barracks") select building;
+            var barrckcs = from building in buildings where building.TileType.Name.Equals("Barracks") select building;
             foreach (var barrack in barrckcs)
             {
                 foreach (Warrior warrior in warriors)
                 {
-                    if (warrior.unit.kind == GameTypes.Warrior.Kind.Swordman  && warrior.TicksLeftToCompletion > 0)
+                    if (warrior.type.kind == GameTypes.WarriorType.Kind.Swordman  && warrior.TicksLeftToCompletion > 0)
                     {
                         warrior.TicksLeftToCompletion--;
                     }
@@ -105,12 +106,12 @@ namespace GameEngine.PlayerItem
 
 
             // build in archeries
-            var archeries = from building in buildings where building.Tile.Name.Equals("Arhery") select building;
+            var archeries = from building in buildings where building.TileType.Name.Equals("Arhery") select building;
             foreach (var archery in archeries)
             {
                 foreach (Warrior warrior in warriors)
                 {
-                    if (warrior.unit.kind == GameTypes.Warrior.Kind.Archer && warrior.TicksLeftToCompletion > 0)
+                    if (warrior.type.kind == GameTypes.WarriorType.Kind.Archer && warrior.TicksLeftToCompletion > 0)
                     {
                         warrior.TicksLeftToCompletion--;
                     }
@@ -121,6 +122,54 @@ namespace GameEngine.PlayerItem
 
 
 
+        }
+
+        public bool Build(TileType tileToBuild)
+        {
+            if ( tileToBuild.FoodCost <= resources.food &&
+                 tileToBuild.StoneCost <= resources.stone &&
+                 tileToBuild.WoodCost <= resources.wood &&
+                 tileToBuild.GoldCost <= resources.gold &&
+                 tileToBuild.WorkerCost <= resources.workers)
+            {
+
+                resources.food -= tileToBuild.FoodCost;
+                resources.stone -= tileToBuild.StoneCost;
+                resources.wood -= tileToBuild.WoodCost;
+                resources.gold -= tileToBuild.GoldCost;
+                resources.workers -= tileToBuild.WorkerCost;
+
+                buildings.Add(new PlayerTile(tileToBuild,0));
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        public bool Train(WarriorType warriortoTrain)
+        {
+            if (warriortoTrain.FoodCost <= resources.food &&
+                 warriortoTrain.StoneCost <= resources.stone &&
+                 warriortoTrain.WoodCost <= resources.wood &&
+                 warriortoTrain.GoldCost <= resources.gold)
+            {
+
+                resources.food -= warriortoTrain.FoodCost;
+                resources.stone -= warriortoTrain.StoneCost;
+                resources.wood -= warriortoTrain.WoodCost;
+                resources.gold -= warriortoTrain.GoldCost;
+
+
+                warriors.Add(new Warrior(warriortoTrain));
+
+                return true;
+
+            }
+
+            return false;
         }
     }
 }

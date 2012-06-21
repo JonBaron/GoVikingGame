@@ -9,15 +9,15 @@ namespace GameEngine.PlayerItem
 {
     public class PlayerTile
     {
-        public GameTypes.Tile Tile;
+        public GameTypes.TileType TileType;
         public int Id;
         public int TicksLeftToCompleteion;
         public int TicksLeftToBurnedDown;
 
 
-        public PlayerTile(GameTypes.Tile tile , int id)
+        public PlayerTile(GameTypes.TileType tileType , int id)
         {
-            Tile = tile;
+            TileType = tileType;
             Id = id;
         }
     }

@@ -20,9 +20,7 @@ namespace GoVikingGameWeb.Controllers
 
             Game game = HttpContext.Application[MvcApplication.GameInstanse] as GameEngine.Game;
 
-            
-
-            var gameModel = new PlayerVikModel();
+            var gameModel = new GameViewModel();
             gameModel.PlayerId = Session.SessionID;
             gameModel.TileTypes = game.TileTypes;
             gameModel.WarriorTypes = game.WarriorTypes;
@@ -37,24 +35,6 @@ namespace GoVikingGameWeb.Controllers
 
 
             return View(gameModel);
-        }
-
-        private Map GetCurrentUserMap
-        {
-            get
-            {
-
-
-                //_game.AddPlayer(1, "test", "no name", GameEngine.GameInititializer.CreateMap(GameInititializer.map2, _game.TileTypes));
-
-                Game game = HttpContext.Application[MvcApplication.GameInstanse] as GameEngine.Game;
-
-                Vik playerVik = (game.Viks.Where(vik => (vik.Id.Equals(Session.SessionID)))).First();
-
-                Map userMap = playerVik.Map;
-
-                return userMap;
-            }
         }
 
     }
