@@ -5,3 +5,10 @@ F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGameEngineTest\bin\Debug\Game
 F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGameEngineTest\obj\Debug\GoVikingGameEngineTest.csprojResolveAssemblyReference.cache
 F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGameEngineTest\obj\Debug\GoVikingGameEngineTest.dll
 F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGameEngineTest\obj\Debug\GoVikingGameEngineTest.pdb
+F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngineTest\bin\Debug\GoVikingGameEngineTest.dll
+F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngineTest\bin\Debug\GoVikingGameEngineTest.pdb
+F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngineTest\bin\Debug\GameEngine.dll
+F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngineTest\bin\Debug\GameEngine.pdb
+F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngineTest\obj\Debug\GoVikingGameEngineTest.csprojResolveAssemblyReference.cache
+F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngineTest\obj\Debug\GoVikingGameEngineTest.dll
+F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngineTest\obj\Debug\GoVikingGameEngineTest.pdb

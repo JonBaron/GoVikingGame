@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -50,11 +51,34 @@ namespace GoVikingGameWeb
 
             // Go Vik'ing Game Engine
             //game = new GameEngine.Game();
-            GameEngine.Game _game = new GameEngine.Game();
+            Game _game = new GameEngine.Game();
             Application.Add(GameInstanse, _game);
+
+
+            Init(() => Work(_game));
+
         }
 
 
+        public delegate void Worker();
+        private static Thread worker;
+
+        public static void Init(Worker work)
+        {
+            worker = new Thread(new ThreadStart(work));
+            worker.Start();
+        }
+
+        public static void Work(Game game)
+        {
+            
+            game.Tick();
+            
+            Thread.Sleep(1000*10);
+
+        }
+
+    // 
         protected void Session_Start(object sender, EventArgs e)
         {
 

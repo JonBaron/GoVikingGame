@@ -37,8 +37,8 @@ namespace GameEngine.PlayerItem
 
         public void Tick()
         {
-            BuildBuildings();
-            BuildWariors();
+            BuildOnBuildings();
+            TrainWariors();
             resources.Produce();
         }
 
@@ -66,7 +66,7 @@ namespace GameEngine.PlayerItem
             ships.Add(defaultShip);
         }
 
-        public void BuildBuildings()
+        public void BuildOnBuildings()
         {
 
             foreach (PlayerTile building in buildings)
@@ -80,6 +80,12 @@ namespace GameEngine.PlayerItem
                                                     building.TileType.StoneProduction, 
                                                     building.TileType.WoodProduction, 
                                                     building.TileType.GoldProduction);
+
+                        if (building.TileType.kind.Equals(TileType.Kind.House))
+                        {
+                            resources.maxWorkers += 5;
+                        }
+
                     }
                 }
                 
@@ -87,7 +93,7 @@ namespace GameEngine.PlayerItem
 
         }
 
-        public void BuildWariors()
+        public void TrainWariors()
         {
 
             // build in barracks. One Barrack can build one unit
@@ -124,7 +130,7 @@ namespace GameEngine.PlayerItem
 
         }
 
-        public bool Build(TileType tileToBuild)
+        public bool StartBuilding(TileType tileToBuild, int tileId)
         {
             if ( tileToBuild.FoodCost <= resources.food &&
                  tileToBuild.StoneCost <= resources.stone &&
@@ -139,7 +145,7 @@ namespace GameEngine.PlayerItem
                 resources.gold -= tileToBuild.GoldCost;
                 resources.workers -= tileToBuild.WorkerCost;
 
-                buildings.Add(new PlayerTile(tileToBuild,0));
+                buildings.Add(new PlayerTile(tileToBuild, tileId));
 
                 return true;
 
@@ -149,7 +155,7 @@ namespace GameEngine.PlayerItem
 
         }
 
-        public bool Train(WarriorType warriortoTrain)
+        public bool StartTraining(WarriorType warriortoTrain)
         {
             if (warriortoTrain.FoodCost <= resources.food &&
                  warriortoTrain.StoneCost <= resources.stone &&

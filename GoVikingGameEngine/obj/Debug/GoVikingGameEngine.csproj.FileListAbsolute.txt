@@ -8,3 +8,8 @@ F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGameEngine\bin\Debug\GameEngi
 F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGameEngine\obj\Debug\GameEngine.dll
 F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGameEngine\obj\Debug\GameEngine.pdb
 F:\Data Prosjekter\GoVikingGame\Versions\1\GoVikingGameEngine\obj\Debug\GoVikingGameEngine.csprojResolveAssemblyReference.cache
+F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\bin\Debug\GameEngine.dll
+F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\bin\Debug\GameEngine.pdb
+F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\obj\Debug\GameEngine.dll
+F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\obj\Debug\GameEngine.pdb
+F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\obj\Debug\GoVikingGameEngine.csprojResolveAssemblyReference.cache

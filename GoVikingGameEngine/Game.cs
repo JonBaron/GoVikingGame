@@ -12,6 +12,7 @@ namespace GameEngine
         public List<PlayerItem.Vik> Viks; // player villages .. i en "Vik"
         public List<GameTypes.WarriorType> WarriorTypes;
         public List<GameTypes.TileType> TileTypes;
+        private int TickNumber = 0;
 
         public Game()
         {
@@ -44,6 +45,8 @@ namespace GameEngine
             }
 
             CalculateBattlesForArrivedShips();
+
+            TickNumber++;
 
         }
 

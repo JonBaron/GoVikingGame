@@ -39,16 +39,21 @@ namespace GoVikingGame.Controllers
         }
 
 
-        public ActionResult Build(TileType.Kind kind)
+        public ActionResult Build(TileType.Kind kind, int TileId)
         {
             TileType tileToBuild = RunningGame.TileTypes.Where(e => e.kind.Equals(kind)).First();
 
-            bool buildStarted = PlayerVik.Build(tileToBuild);
+            bool buildStarted = PlayerVik.StartBuilding(tileToBuild, TileId);
 
             var buildresponse = new PlayerResponseModels.BuildModel();
             buildresponse.Ok = buildStarted;
-            buildresponse.Kind = kind;
-            buildresponse.BuildTimeTicks = tileToBuild.BuildingTime;
+            if (buildStarted)
+            {
+                buildresponse.ImageFile = tileToBuild.ImageFile;
+                buildresponse.BuildTimeTicks = tileToBuild.BuildingTime;
+                buildresponse.TileId = TileId;
+
+            }
 
             return View(buildresponse);
         }
@@ -58,7 +63,7 @@ namespace GoVikingGame.Controllers
         {
             WarriorType warriortoTrain = RunningGame.WarriorTypes.Where(e => e.kind.Equals(kind)).First();
 
-            bool trainingStarted = PlayerVik.Train(warriortoTrain);
+            bool trainingStarted = PlayerVik.StartTraining(warriortoTrain);
 
             var response = new PlayerResponseModels.CreateModel();
             response.Ok = trainingStarted;
@@ -85,6 +90,7 @@ namespace GoVikingGame.Controllers
             resources.stone = playerVik.resources.stone;
             resources.gold = playerVik.resources.gold;
             resources.workers = playerVik.resources.workers;
+            resources.maxWorkers = playerVik.resources.maxWorkers;
 
             resources.foodProduction = playerVik.resources.foodProduction;
             resources.woodProduction = playerVik.resources.woodProduction;

@@ -1,9 +1,8 @@
 ﻿$(document).ready(function () {
 
     $(".BuildMenuClose").click(function (event) {
-        
-        $(event.target).parent().hide();
 
+        CloseBuildMenus();
         return false;
     });
 
@@ -11,9 +10,11 @@
     $('table img').click(function (event) {
 
 
-        $('.buildmenu').hide();
+        CloseBuildMenus();
 
         var id = event.target.id;
+        $("#CurrentTileId").val(id);
+
         var tiletype = event.target.alt;
 
         var pos = $(event.target).position();
@@ -37,11 +38,17 @@
 });
 
 
+function CloseBuildMenus() {
+    
+    $('.buildmenu').hide();
+    $("#CurrentTileId").val(null);
+}
+
+
   
 function Train(kind) {
 
-
-    var service = '/Player/Train/?kind=' + kind;
+    var service = '/Player/Train/?ImageFile=' + kind;
 
     $.ajax({
         cache: false,
@@ -54,7 +61,9 @@ function Train(kind) {
             if (r.ok===true)
             {
                 console.log('Training will take ' + r.TrainingTicks + ' ticks');
+                CloseBuildMenus();
                 UpdateResources();
+                
             }
             else {
                 console.log(r.ErrorMessage);
@@ -63,7 +72,7 @@ function Train(kind) {
         }
     });
 
-    $('.buildmenu').hide();
+    
     
     return false;
 }
@@ -71,8 +80,8 @@ function Train(kind) {
 function Build(kind) {
 
 
-    var service = '/Player/Build/?kind=' + kind;
-
+    var currentTile = $("#CurrentTileId").val();
+    var service = '/Player/Build/?Kind=' + kind + '&TileId=' + currentTile;
     
     $.ajax({
         cache: false,
@@ -84,15 +93,18 @@ function Build(kind) {
 
             if (r.Ok === true) {
                 console.log('Building will take ' + r.BuildTimeTicks + ' ticks');
+                CloseBuildMenus();
                 UpdateResources();
+
+                $("#" + r.TileId).attr("src", "../../Content/Tiles/" + r.ImageFile);
+
+
             }
             else {
             }
 
         }
     });
-
-    $('.buildmenu').hide();
 
     return false;
 }
@@ -116,11 +128,7 @@ function UpdateResources() {
             $("#GoldResources").text(r.gold + '(' + r.goldProduction + ')');
             $("#StoneResources").text(r.stone + '(' + r.stoneProduction + ')');
             $("#WoodResources").text(r.wood + '(' + r.woodProduction + ')');
-            $("#WorkersResources").text(r.workers);
-            
-            
-            
-
+            $("#WorkersResources").text(r.workers + "/"  + r.maxWorkers);
 
         }
     });

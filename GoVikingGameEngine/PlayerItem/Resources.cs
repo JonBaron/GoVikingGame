@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿
 
 namespace GameEngine.PlayerItem
 {
@@ -12,11 +9,13 @@ namespace GameEngine.PlayerItem
         public int wood;
         public int gold;
         public int workers;
+        public int maxWorkers; // Houseing
 
         public int foodProduction;
         public int stoneProduction;
         public int woodProduction;
         public int goldProduction;
+        
 
         public Resources()
         {
@@ -24,7 +23,8 @@ namespace GameEngine.PlayerItem
             stone = 1000;
             wood = 1000;
             gold = 100;
-            workers = 10;
+            workers = 4;
+            maxWorkers = 5;
         }
 
         public void Produce()

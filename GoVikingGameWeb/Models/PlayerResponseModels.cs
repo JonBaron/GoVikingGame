@@ -8,10 +8,11 @@ namespace GoVikingGame.Models
 
         public class BuildModel
         {
-            public TileType.Kind Kind;
+            public string ImageFile;
             public int BuildTimeTicks;
             public bool Ok;
             public string Response;
+            public int TileId;
         }
 
         public class CreateModel
@@ -34,6 +35,7 @@ namespace GoVikingGame.Models
             public int gold;
             public int workers;
 
+            public int maxWorkers;
 
             public int foodProduction;
             public int stoneProduction;

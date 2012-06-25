@@ -16,7 +16,8 @@
     <span class="resources"><img src="../../Content/GUI/wood.png"/><span  id="WoodResources">@Model.Resources.wood (+@Model.Resources.woodProduction)</span></span>
     <span class="resources"><img src="../../Content/GUI/stone.png"/><span  id="StoneResources">@Model.Resources.stone (+@Model.Resources.stoneProduction)</span></span>
     <span class="resources"><img src="../../Content/GUI/gold.png"/><span id="GoldResources">@Model.Resources.gold (+@Model.Resources.goldProduction)</span></span>
-    <span class="resources"><img src="../../Content/GUI/workers.png"/><span id="WorkersResources">@Model.Resources.workers</span></span>
+    <span class="resources"><img src="../../Content/GUI/workers.png"/><span id="WorkersResources">@Model.Resources.workers / @Model.Resources.maxWorkers</span></span>
+
 </p>
 <style>
     table.mapview_computed {
@@ -55,6 +56,8 @@
     <nav class="buildmenu" id="@tiletype.Name" style="display: none;">
         
         <h3>@tiletype.FriendlyName</h3>
+        
+        <input type="hidden" id="CurrentTileId"/>
 
         @*Warriors*@        
         @foreach (var type in tiletype.CreateAble)
@@ -92,8 +95,6 @@
         {
             <span>Nothing to do here yet...</span><br/><br/>
         }
-
-       
         <a href="#" class="button grey BuildMenuClose" style="width: 90%; text-align: center;">
             <b>Close</b>
         </a>

@@ -18,6 +18,7 @@ namespace GameEngine.GameTypes
             Gold,
             Stone,
             Farm,
+            House,
             The_Long_House,
             The_Ship,
             Lumber_camp,

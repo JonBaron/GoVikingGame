@@ -32,18 +32,19 @@ namespace GameEngine
             gameTileTypes.Add(new TileType() { kind = TileType.Kind.The_Ship    });
             gameTileTypes.Add(new TileType() { kind = TileType.Kind.The_Long_House, CreateAble = new WarriorType.Kind[] { WarriorType.Kind.Worker }});
             gameTileTypes.Add(new TileType() { kind = TileType.Kind.Hill,           Buildable = new TileType.Kind[] { TileType.Kind.Tower}});
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Grass,          Buildable = new TileType.Kind[] { TileType.Kind.Barracks, TileType.Kind.Archery, TileType.Kind.Farm, TileType.Kind.Tower  } });
+            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Grass,          Buildable = new TileType.Kind[] { TileType.Kind.Barracks, TileType.Kind.Archery, TileType.Kind.Farm, TileType.Kind.Tower , TileType.Kind.House } });
             gameTileTypes.Add(new TileType() { kind = TileType.Kind.Forrest,        Buildable = new TileType.Kind[] { TileType.Kind.Lumber_camp }});
             gameTileTypes.Add(new TileType() { kind = TileType.Kind.Gold,           Buildable = new TileType.Kind[] { TileType.Kind.Gold_Mine } });
             gameTileTypes.Add(new TileType() { kind = TileType.Kind.Stone,          Buildable = new TileType.Kind[] { TileType.Kind.Quarry }  });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Farm,           BuildingTime = 10, WoodCost  = 200, WorkerCost = 2, FoodProduction = 10, Description = "Farmers create 10 food per tick."} );
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Lumber_camp,    BuildingTime = 10, StoneCost = 200, WoodProduction = 10, WorkerCost = 2, Description = "Workers create lumber for construction." });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Quarry,         BuildingTime = 20, WoodCost = 300, StoneProduction = 10, WorkerCost = 3, Description = "Works creae stone blocks for buildings." });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Gold_Mine,      BuildingTime = 30, StoneCost = 200, WoodCost = 200, WorkerCost = 4, GoldProduction = 10 });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Barracks,       BuildingTime = 20, StoneCost = 200, WoodCost = 200, Buildable = new TileType.Kind[] { TileType.Kind.Barracks_2 }, CreateAble = new WarriorType.Kind[] { WarriorType.Kind.Swordman }, Description = "A building where warriors are trained." });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Barracks_2,     BuildingTime = 40, StoneCost = 500, WoodCost = 500, CreateAble = new WarriorType.Kind[] { WarriorType.Kind.Axeman, WarriorType.Kind.Swordman } });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Archery,        BuildingTime = 20, StoneCost = 200, WoodCost = 200, CreateAble = new WarriorType.Kind[] { WarriorType.Kind.Archer }, Description = "Archers are trained and equited here." });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Tower,          BuildingTime = 20, StoneCost = 500, WoodCost = 100, Description = "Increases the defence of the village." });
+            gameTileTypes.Add(new TileType() { kind = TileType.Kind.House,          BuildingTime = 1, WoodCost = 100, Description = "Housing for workers." });
+            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Farm,           BuildingTime = 1, WoodCost  = 200, WorkerCost = 2, FoodProduction = 10, Description = "Farmers create 10 food per tick."} );
+            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Lumber_camp,    BuildingTime = 1, StoneCost = 200, WoodProduction = 10, WorkerCost = 2, Description = "Workers create lumber for construction." });
+            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Quarry,         BuildingTime = 1, WoodCost = 300, StoneProduction = 10, WorkerCost = 3, Description = "Works creae stone blocks for buildings." });
+            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Gold_Mine,      BuildingTime = 1, StoneCost = 200, WoodCost = 200, WorkerCost = 4, GoldProduction = 10 });
+            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Barracks,       BuildingTime = 1, StoneCost = 200, WoodCost = 200, Buildable = new TileType.Kind[] { TileType.Kind.Barracks_2 }, CreateAble = new WarriorType.Kind[] { WarriorType.Kind.Swordman }, Description = "A building where warriors are trained." });
+            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Barracks_2,     BuildingTime = 1, StoneCost = 500, WoodCost = 500, CreateAble = new WarriorType.Kind[] { WarriorType.Kind.Axeman, WarriorType.Kind.Swordman } });
+            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Archery,        BuildingTime = 1, StoneCost = 200, WoodCost = 200, CreateAble = new WarriorType.Kind[] { WarriorType.Kind.Archer }, Description = "Archers are trained and equited here." });
+            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Tower,          BuildingTime = 1, StoneCost = 500, WoodCost = 100, Description = "Increases the defence of the village." });
 
             return gameTileTypes;
         }
