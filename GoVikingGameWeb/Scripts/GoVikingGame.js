@@ -39,16 +39,16 @@
 
 
 function CloseBuildMenus() {
-    
+   
     $('.buildmenu').hide();
-    $("#CurrentTileId").val(null);
+    
 }
 
 
   
 function Train(kind) {
 
-    var service = '/Player/Train/?ImageFile=' + kind;
+    var service = '/Client/Train/?ImageFile=' + kind;
 
     $.ajax({
         cache: false,
@@ -63,7 +63,7 @@ function Train(kind) {
                 console.log('Training will take ' + r.TrainingTicks + ' ticks');
                 CloseBuildMenus();
                 UpdateResources();
-                
+                return false;
             }
             else {
                 console.log(r.ErrorMessage);
@@ -71,7 +71,6 @@ function Train(kind) {
 
         }
     });
-
     
     
     return false;
@@ -81,7 +80,7 @@ function Build(kind) {
 
 
     var currentTile = $("#CurrentTileId").val();
-    var service = '/Player/Build/?Kind=' + kind + '&TileId=' + currentTile;
+    var service = '/Client/Build/?Kind=' + kind + '&TileId=' + currentTile;
     
     $.ajax({
         cache: false,
@@ -95,14 +94,11 @@ function Build(kind) {
                 console.log('Building will take ' + r.BuildTimeTicks + ' ticks');
                 CloseBuildMenus();
                 UpdateResources();
-
                 $("#" + r.TileId).attr("src", "../../Content/Tiles/" + r.ImageFile);
-
-
-            }
-            else {
+                
             }
 
+            return false;
         }
     });
 
@@ -112,7 +108,7 @@ function Build(kind) {
 function UpdateResources() {
 
 
-    var service = 'Player/Resources';
+    var service = '/Client/Resources';
 
 
     $.ajax({
@@ -122,18 +118,17 @@ function UpdateResources() {
         success: function (data, status, xhr) {
 
             var r = eval(data);            
-
             
             $("#FoodResources").text(r.food + '(' + r.foodProduction + ')');
             $("#GoldResources").text(r.gold + '(' + r.goldProduction + ')');
             $("#StoneResources").text(r.stone + '(' + r.stoneProduction + ')');
             $("#WoodResources").text(r.wood + '(' + r.woodProduction + ')');
-            $("#WorkersResources").text(r.workers + "/"  + r.maxWorkers);
+            $("#WorkersResources").text(r.workers + "/" + r.maxWorkers);
 
+            $("#GameNextTick").text("T:" + r.nextTick);
+
+            return false;
         }
     });
-
-    $('.buildmenu').hide();
-
     return false;
 }

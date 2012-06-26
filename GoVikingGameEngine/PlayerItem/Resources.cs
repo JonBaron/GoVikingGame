@@ -9,13 +9,12 @@ namespace GameEngine.PlayerItem
         public int wood;
         public int gold;
         public int workers;
-        public int maxWorkers; // Houseing
+        public int maxWorkers; // Housing
 
         public int foodProduction;
         public int stoneProduction;
         public int woodProduction;
         public int goldProduction;
-        
 
         public Resources()
         {

@@ -71,10 +71,12 @@ namespace GoVikingGameWeb
 
         public static void Work(Game game)
         {
-            
-            game.Tick();
-            
-            Thread.Sleep(1000*10);
+
+            while (true)
+            {
+                game.Tick();
+
+            }
 
         }
 

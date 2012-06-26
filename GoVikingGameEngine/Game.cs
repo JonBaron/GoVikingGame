@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using GameEngine.PlayerItem;
 
 
@@ -12,7 +14,9 @@ namespace GameEngine
         public List<PlayerItem.Vik> Viks; // player villages .. i en "Vik"
         public List<GameTypes.WarriorType> WarriorTypes;
         public List<GameTypes.TileType> TileTypes;
-        private int TickNumber = 0;
+        private int _tickNumber = 0;
+        public TimeSpan TickTime = new TimeSpan(0,0,10);
+        private DateTime _nextTick = DateTime.Now; 
 
         public Game()
         {
@@ -24,9 +28,19 @@ namespace GameEngine
 
         }
 
-        public PlayerItem.Vik AddPlayer(string id, string nickName, string villageName, Map map)
+        public int TickNumber
         {
-            PlayerItem.Vik vik = new PlayerItem.Vik(id, nickName, villageName);
+            get { return _tickNumber; }
+        }
+
+        public DateTime NextTick
+        {
+            get { return _nextTick; }
+        }
+
+        public Vik AddPlayer(string id, string nickName, string villageName, Map map)
+        {
+            Vik vik = new Vik(id, nickName, villageName);
 
             vik.Map = map; 
 
@@ -38,7 +52,10 @@ namespace GameEngine
         public void Tick()
         {
 
-            foreach (PlayerItem.Vik vik in Viks)
+            DateTime tickstart = DateTime.Now;
+
+
+            foreach (Vik vik in Viks)
             {
                 vik.Tick();
                 vik.MoveShips();
@@ -46,9 +63,15 @@ namespace GameEngine
 
             CalculateBattlesForArrivedShips();
 
-            TickNumber++;
+            _tickNumber = TickNumber + 1;
+
+            TimeSpan waitForIt = TickTime - (DateTime.Now - tickstart);
+            Debug.WriteLine("Tick took:" +(DateTime.Now - tickstart));
+            _nextTick = DateTime.Now + waitForIt;
+            Thread.Sleep(waitForIt);
 
         }
+
 
         private void CalculateBattlesForArrivedShips()
         {

@@ -1,9 +1,10 @@
 ﻿
-using GameEngine.GameTypes;
+
+using System;
 
 namespace GoVikingGame.Models
 {
-    public class PlayerResponseModels
+    public class ClientResponseModels
     {
 
         public class BuildModel
@@ -41,6 +42,8 @@ namespace GoVikingGame.Models
             public int stoneProduction;
             public int woodProduction;
             public int goldProduction;
+
+            public long nextTick;
 
         }
 

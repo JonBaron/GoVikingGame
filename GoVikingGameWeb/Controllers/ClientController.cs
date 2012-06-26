@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using GameEngine;
 using GameEngine.GameTypes;
@@ -11,10 +9,8 @@ using GoVikingGameWeb;
 
 namespace GoVikingGame.Controllers
 {
-    public class PlayerController : Controller
+    public class ClientController : Controller
     {
-
-        // GET: /Player/
 
 
 
@@ -45,7 +41,7 @@ namespace GoVikingGame.Controllers
 
             bool buildStarted = PlayerVik.StartBuilding(tileToBuild, TileId);
 
-            var buildresponse = new PlayerResponseModels.BuildModel();
+            var buildresponse = new ClientResponseModels.BuildModel();
             buildresponse.Ok = buildStarted;
             if (buildStarted)
             {
@@ -65,7 +61,7 @@ namespace GoVikingGame.Controllers
 
             bool trainingStarted = PlayerVik.StartTraining(warriortoTrain);
 
-            var response = new PlayerResponseModels.CreateModel();
+            var response = new ClientResponseModels.CreateModel();
             response.Ok = trainingStarted;
             response.TrainingTicks = warriortoTrain.TrainingTime;
             return View(response);
@@ -73,16 +69,15 @@ namespace GoVikingGame.Controllers
 
         public ActionResult Message(string message)
         {
-            var response = new PlayerResponseModels.MessageModel();
+            var response = new ClientResponseModels.MessageModel();
             response.response = "server klokka " + DateTime.Now + " melding var '" + message + "'";
             return View(response);
         }
 
 
-
         public ActionResult Resources()
         {
-            var resources = new PlayerResponseModels.Resources();
+            var resources = new ClientResponseModels.Resources();
 
             Vik playerVik = PlayerVik;
             resources.food = playerVik.resources.food;
@@ -96,15 +91,12 @@ namespace GoVikingGame.Controllers
             resources.woodProduction = playerVik.resources.woodProduction;
             resources.stoneProduction = playerVik.resources.stoneProduction;
             resources.goldProduction = playerVik.resources.goldProduction;
-            
+
+            resources.nextTick = RunningGame.NextTick.Ticks;
             
             return View(resources);
 
         }
-
-
-
-
 
     }
 }
