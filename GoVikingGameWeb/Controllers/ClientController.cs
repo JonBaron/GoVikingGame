@@ -18,7 +18,7 @@ namespace GoVikingGame.Controllers
         {
             get
             {
-                Game game = HttpContext.Application[MvcApplication.GameInstanse] as GameEngine.Game;
+                Game game = HttpContext.Application[MvcApplication.GameInstanse] as Game;
                 return game;
             }
 

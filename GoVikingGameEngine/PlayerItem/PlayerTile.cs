@@ -19,6 +19,8 @@ namespace GameEngine.PlayerItem
         {
             TileType = tileType;
             Id = id;
+            TicksLeftToCompleteion = tileType.BuildingTime;
+
         }
     }
 }

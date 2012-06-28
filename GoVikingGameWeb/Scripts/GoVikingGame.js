@@ -54,7 +54,7 @@ var CloseBuildMenus = function() {
   
 var Train = function(kind) {
 
-    var service = '/Client/Train/?ImageFile=' + kind;
+    var service = '/Client/Train/?Kind=' + kind;
 
     $.ajax({
         cache: false,
@@ -64,7 +64,7 @@ var Train = function(kind) {
 
             var r = eval(data);
             
-            if (r.ok===true)
+            if (r.Ok===true)
             {
                 console.log('Training will take ' + r.TrainingTicks + ' ticks');
                 CloseBuildMenus();

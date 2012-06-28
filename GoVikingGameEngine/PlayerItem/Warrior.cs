@@ -8,6 +8,7 @@ namespace GameEngine.PlayerItem
         public Warrior(WarriorType type)
         {
             this.type = type;
+            this.TicksLeftToCompletion = type.TrainingTime;
         }
 
         public WarriorType type;

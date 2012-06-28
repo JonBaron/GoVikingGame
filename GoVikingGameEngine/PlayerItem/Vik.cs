@@ -72,12 +72,12 @@ namespace GameEngine.PlayerItem
         {
 
             // build in barracks. One Barrack can build one unit
-            var barrckcs = from building in buildings where building.TileType.Name.Equals("Barracks") select building;
-            foreach (var barrack in barrckcs)
+            var barracks = from building in buildings where building.TileType.kind == TileType.Kind.Barracks ||  building.TileType.kind == TileType.Kind.Barracks_2 select building;
+            foreach (var barrack in barracks)
             {
                 foreach (Warrior warrior in warriors)
                 {
-                    if (warrior.type.kind == GameTypes.WarriorType.Kind.Swordman  && warrior.TicksLeftToCompletion > 0)
+                    if ((warrior.type.kind == GameTypes.WarriorType.Kind.Swordman || warrior.type.kind == GameTypes.WarriorType.Kind.Axeman) && warrior.TicksLeftToCompletion > 0)
                     {
                         warrior.TicksLeftToCompletion--;
                     }
@@ -87,7 +87,7 @@ namespace GameEngine.PlayerItem
 
 
             // build in archeries
-            var archeries = from building in buildings where building.TileType.Name.Equals("Arhery") select building;
+            var archeries = from building in buildings where building.TileType.kind == TileType.Kind.Archery select building;
             foreach (var archery in archeries)
             {
                 foreach (Warrior warrior in warriors)
@@ -101,6 +101,26 @@ namespace GameEngine.PlayerItem
             }
 
 
+            // build in long house
+            var longhouse = from building in buildings where building.TileType.kind==TileType.Kind.The_Long_House select building;
+            foreach (var b in longhouse)
+            {
+                var workersToTrain = from w in warriors
+                                 where w.TicksLeftToCompletion > 0 && w.type.kind == WarriorType.Kind.Worker
+                                 select w;
+
+                foreach (Warrior warrior in workersToTrain)
+                {
+                        warrior.TicksLeftToCompletion--;
+
+                    if (warrior.TicksLeftToCompletion==0)
+                    {
+                        resources.workers++;
+                    }
+
+                }
+
+            }
 
 
         }
@@ -138,10 +158,6 @@ namespace GameEngine.PlayerItem
 
                 buildings.Add(new PlayerTile(tileToBuild, tileId));
 
-
-
-
-
                 return true;
 
             }
@@ -155,8 +171,20 @@ namespace GameEngine.PlayerItem
             if (warriortoTrain.FoodCost <= resources.food &&
                  warriortoTrain.StoneCost <= resources.stone &&
                  warriortoTrain.WoodCost <= resources.wood &&
-                 warriortoTrain.GoldCost <= resources.gold)
+                 warriortoTrain.GoldCost <= resources.gold 
+                )
             {
+
+                if (warriortoTrain.kind==WarriorType.Kind.Worker)
+                {
+                    int workers = (from w in warriors where w.type.kind == WarriorType.Kind.Worker select w).Count();
+                    if (workers>resources.maxWorkers)
+                    {
+                        Debug.WriteLine("Not enough houses to create worker.");
+                        return false;
+                    }
+                }
+
 
                 resources.food -= warriortoTrain.FoodCost;
                 resources.stone -= warriortoTrain.StoneCost;

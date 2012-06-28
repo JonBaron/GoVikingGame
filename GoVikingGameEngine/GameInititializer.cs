@@ -14,10 +14,10 @@ namespace GameEngine
             List<WarriorType> types = new List<GameTypes.WarriorType>();
 
             // TODO: Rip units from aoe2
-            types.Add(new WarriorType() { kind = WarriorType.Kind.Worker,   TrainingTime = 10, Description = "Workers is used for farming, lumber cutting and other work. They are lousy fighers, and usually dies if attacked.", FoodCost = 100, AttackBonus = 0, Strength = 1 });
-            types.Add(new WarriorType() { kind = WarriorType.Kind.Axeman,   TrainingTime = 20, Description = "Agressive but poorly equitet warrior.", FoodCost = 100, AttackBonus = 1.25, Strength = 3 });
-            types.Add(new WarriorType() { kind = WarriorType.Kind.Archer,   TrainingTime = 20, Description = "With their bow and arrow they are good defenders of the village", FoodCost = 100, WoodCost = 50, DefenceBonus = 1.25, Strength = 3 });
-            types.Add(new WarriorType() { kind = WarriorType.Kind.Swordman, TrainingTime = 40, Description = "With swords and armor these warriors are good allround warriors.", FoodCost = 200, GoldCost = 50, AttackBonus = 1.25, Strength = 5 });
+            types.Add(new WarriorType() { kind = WarriorType.Kind.Worker,   TrainingTime = 3, Description = "Workers is used for farming, lumber cutting and other work. They are lousy fighers, and usually dies if attacked.", FoodCost = 100, AttackBonus = 0, Strength = 1 });
+            types.Add(new WarriorType() { kind = WarriorType.Kind.Axeman,   TrainingTime = 3, Description = "Agressive but poorly equitet warrior.", FoodCost = 100, AttackBonus = 1.25, Strength = 3 });
+            types.Add(new WarriorType() { kind = WarriorType.Kind.Archer,   TrainingTime = 3, Description = "With their bow and arrow they are good defenders of the village", FoodCost = 100, WoodCost = 50, DefenceBonus = 1.25, Strength = 3 });
+            types.Add(new WarriorType() { kind = WarriorType.Kind.Swordman, TrainingTime = 3, Description = "With swords and armor these warriors are good allround warriors.", FoodCost = 200, GoldCost = 50, AttackBonus = 1.25, Strength = 5 });
 
             return types;
 

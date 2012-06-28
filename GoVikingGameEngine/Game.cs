@@ -16,15 +16,15 @@ namespace GameEngine
         public List<WarriorType> WarriorTypes;
         public List<TileType> TileTypes;
         private int _tickNumber = 0;
-        public TimeSpan TickTime = new TimeSpan(0,0,10);
-        private DateTime _nextTick = DateTime.Now; 
+        public TimeSpan TickTime = new TimeSpan(0, 0, 10);
+        private DateTime _nextTick = DateTime.Now;
 
         public Game()
         {
-            
+
             WarriorTypes = GameInititializer.InitWarriorTypes();
             TileTypes = GameInititializer.InitBuildingTypes();
-            
+
             Viks = new List<Vik>();
 
         }
@@ -43,9 +43,30 @@ namespace GameEngine
         {
             Vik vik = new Vik(id, nickName, villageName);
 
-            vik.map = map; 
+            vik.map = map;
+
+            //start with a building.
+            TileType theLongHouse = (from t in TileTypes where t.kind == TileType.Kind.The_Long_House select t).First();
+
+
+            /// Fint it on the map
+            int theLongHouseTileid = -1;
+            foreach (var l in vik.map)
+            {
+                IEnumerable<PlayerTile> playerTiles = (from t in l where t.TileType.kind == TileType.Kind.The_Long_House select t);
+                if (playerTiles.Count()==1)
+                {
+                    theLongHouseTileid = playerTiles.First().Id;
+                    break;
+                }
+
+            }
+
+            vik.buildings.Add(new PlayerTile(theLongHouse, theLongHouseTileid));
 
             Viks.Add(vik);
+
+
             return vik;
 
         }
@@ -68,7 +89,7 @@ namespace GameEngine
             _tickNumber = TickNumber + 1;
 
             TimeSpan waitForIt = TickTime - (DateTime.Now - tickstart);
-            Debug.WriteLine("Tick took:" +(DateTime.Now - tickstart));
+            Debug.WriteLine("Tick took:" + (DateTime.Now - tickstart));
             _nextTick = DateTime.Now + waitForIt;
             if (waitForIt.Ticks > 0)
             {
@@ -87,7 +108,8 @@ namespace GameEngine
 
                 foreach (PlayerItem.Ship attackingShip in attackingShips)
                 {
-                    PlayerItem.Vik defender = (from dvik in Viks where dvik.Id == attackingShip.AttackPlayerId select dvik).FirstOrDefault();
+                    PlayerItem.Vik defender =
+                        (from dvik in Viks where dvik.Id == attackingShip.AttackPlayerId select dvik).FirstOrDefault();
                     CalculateBattle(attackingShip, defender);
                 }
             }
@@ -119,15 +141,15 @@ namespace GameEngine
 
                 if (attacker.Alive)
                 {
-                    
+
                     int foodLoot = god.Next(100);
-                    if (defenderVik.resources.food<foodLoot)
+                    if (defenderVik.resources.food < foodLoot)
                         foodLoot = defenderVik.resources.food;
                     defenderVik.resources.food -= foodLoot;
                     attackerShip.foodLoot += foodLoot;
 
                     int woodLoot = god.Next(100);
-                    if (defenderVik.resources.wood<woodLoot)
+                    if (defenderVik.resources.wood < woodLoot)
                         woodLoot = defenderVik.resources.wood;
                     defenderVik.resources.wood -= woodLoot;
                     attackerShip.woodLoot += woodLoot;
@@ -153,14 +175,13 @@ namespace GameEngine
 
         public void BuildOnBuildings(Vik vik)
         {
+            var uncomplete = (from b in vik.buildings where b.TicksLeftToCompleteion > 0 select b);
 
-            foreach (PlayerTile building in vik.buildings)
+            foreach (PlayerTile building in uncomplete)
             {
-                if (building.TicksLeftToCompleteion > 0)
-                {
-                    building.TicksLeftToCompleteion--;
-                }
-                else
+                building.TicksLeftToCompleteion--;
+
+                if (building.TicksLeftToCompleteion == 0)
                 {
                     // BUILDING COMPLETE
 
@@ -178,18 +199,16 @@ namespace GameEngine
                         }
                     }
 
-
-
-
                     vik.resources.UpdateProduction(building.TileType.FoodProduction,
-                                               building.TileType.StoneProduction,
-                                               building.TileType.WoodProduction,
-                                               building.TileType.GoldProduction);
+                                                   building.TileType.StoneProduction,
+                                                   building.TileType.WoodProduction,
+                                                   building.TileType.GoldProduction);
 
                     if (building.TileType.kind.Equals(TileType.Kind.House))
                     {
                         vik.resources.maxWorkers += 5;
                     }
+
 
 
 
