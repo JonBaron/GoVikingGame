@@ -27,7 +27,7 @@ namespace GoVikingGameWeb.Controllers
 
             Vik playerVik = (game.Viks.Where(vik => (vik.Id.Equals(Session.SessionID)))).First();
 
-            gameModel.UserSessionMap = playerVik.Map;
+            gameModel.UserSessionMap = playerVik.map;
             gameModel.Resources = playerVik.resources;
 
             gameModel.GameViksCount = game.Viks.Count;

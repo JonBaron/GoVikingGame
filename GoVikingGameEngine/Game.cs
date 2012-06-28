@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
+using GameEngine.GameTypes;
 using GameEngine.PlayerItem;
 
 
@@ -11,9 +12,9 @@ namespace GameEngine
     public class Game
     {
 
-        public List<PlayerItem.Vik> Viks; // player villages .. i en "Vik"
-        public List<GameTypes.WarriorType> WarriorTypes;
-        public List<GameTypes.TileType> TileTypes;
+        public List<Vik> Viks; // player villages .. i en "Vik"
+        public List<WarriorType> WarriorTypes;
+        public List<TileType> TileTypes;
         private int _tickNumber = 0;
         public TimeSpan TickTime = new TimeSpan(0,0,10);
         private DateTime _nextTick = DateTime.Now; 
@@ -24,7 +25,7 @@ namespace GameEngine
             WarriorTypes = GameInititializer.InitWarriorTypes();
             TileTypes = GameInititializer.InitBuildingTypes();
             
-            Viks = new List<PlayerItem.Vik>();
+            Viks = new List<Vik>();
 
         }
 
@@ -42,7 +43,7 @@ namespace GameEngine
         {
             Vik vik = new Vik(id, nickName, villageName);
 
-            vik.Map = map; 
+            vik.map = map; 
 
             Viks.Add(vik);
             return vik;
@@ -57,6 +58,7 @@ namespace GameEngine
 
             foreach (Vik vik in Viks)
             {
+                BuildOnBuildings(vik);
                 vik.Tick();
                 vik.MoveShips();
             }
@@ -68,7 +70,10 @@ namespace GameEngine
             TimeSpan waitForIt = TickTime - (DateTime.Now - tickstart);
             Debug.WriteLine("Tick took:" +(DateTime.Now - tickstart));
             _nextTick = DateTime.Now + waitForIt;
-            Thread.Sleep(waitForIt);
+            if (waitForIt.Ticks > 0)
+            {
+                Thread.Sleep(waitForIt);
+            }
 
         }
 
@@ -143,6 +148,55 @@ namespace GameEngine
 
 
             }
+        }
+
+
+        public void BuildOnBuildings(Vik vik)
+        {
+
+            foreach (PlayerTile building in vik.buildings)
+            {
+                if (building.TicksLeftToCompleteion > 0)
+                {
+                    building.TicksLeftToCompleteion--;
+                }
+                else
+                {
+                    // BUILDING COMPLETE
+
+                    foreach (List<PlayerTile> tiles in vik.map)
+                    {
+                        foreach (PlayerTile playerTile in tiles)
+                        {
+                            if (playerTile.Id == building.Id)
+                            {
+                                playerTile.TileType =
+                                    (from t in TileTypes where t.kind == building.TileType.kind select t).First();
+                                Debug.WriteLine("build new building :" + playerTile.TileType.ToString());
+                                break;
+                            }
+                        }
+                    }
+
+
+
+
+                    vik.resources.UpdateProduction(building.TileType.FoodProduction,
+                                               building.TileType.StoneProduction,
+                                               building.TileType.WoodProduction,
+                                               building.TileType.GoldProduction);
+
+                    if (building.TileType.kind.Equals(TileType.Kind.House))
+                    {
+                        vik.resources.maxWorkers += 5;
+                    }
+
+
+
+                }
+
+            }
+
         }
     }
 }

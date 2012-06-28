@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using GameEngine.GameTypes;
@@ -18,7 +19,7 @@ namespace GameEngine.PlayerItem
         public List<Ship> ships; // TODO: build ships
         public List<Warrior> warriors;
         public List<PlayerTile> buildings;
-        public Map Map;
+        public Map map;
 
         public Vik(string id, string playername, string villagename)
         {
@@ -37,7 +38,6 @@ namespace GameEngine.PlayerItem
 
         public void Tick()
         {
-            BuildOnBuildings();
             TrainWariors();
             resources.Produce();
         }
@@ -66,32 +66,7 @@ namespace GameEngine.PlayerItem
             ships.Add(defaultShip);
         }
 
-        public void BuildOnBuildings()
-        {
-
-            foreach (PlayerTile building in buildings)
-            {
-                if (building.TicksLeftToCompleteion>0)
-                {
-                    building.TicksLeftToCompleteion--;
-                    if (building.TicksLeftToCompleteion==0) // it is complete
-                    {
-                        resources.UpdateProduction( building.TileType.FoodProduction, 
-                                                    building.TileType.StoneProduction, 
-                                                    building.TileType.WoodProduction, 
-                                                    building.TileType.GoldProduction);
-
-                        if (building.TileType.kind.Equals(TileType.Kind.House))
-                        {
-                            resources.maxWorkers += 5;
-                        }
-
-                    }
-                }
-                
-            }
-
-        }
+ 
 
         public void TrainWariors()
         {
@@ -132,6 +107,22 @@ namespace GameEngine.PlayerItem
 
         public bool StartBuilding(TileType tileToBuild, int tileId)
         {
+
+
+            foreach (List<PlayerTile> tiles in map)
+            {
+                foreach (PlayerTile playerTile in tiles)
+                {
+                    if (playerTile.Id == tileId && playerTile.TileType.kind == tileToBuild.kind)
+                    {
+                        Debug.WriteLine("Already build here.");
+                        return false;
+                    }
+                }
+            }
+
+
+
             if ( tileToBuild.FoodCost <= resources.food &&
                  tileToBuild.StoneCost <= resources.stone &&
                  tileToBuild.WoodCost <= resources.wood &&
@@ -146,6 +137,10 @@ namespace GameEngine.PlayerItem
                 resources.workers -= tileToBuild.WorkerCost;
 
                 buildings.Add(new PlayerTile(tileToBuild, tileId));
+
+
+
+
 
                 return true;
 

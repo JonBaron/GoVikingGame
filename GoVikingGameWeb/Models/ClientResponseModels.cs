@@ -1,6 +1,7 @@
 ﻿
 
 using System;
+using GameEngine.GameTypes;
 
 namespace GoVikingGame.Models
 {
@@ -14,6 +15,7 @@ namespace GoVikingGame.Models
             public bool Ok;
             public string Response;
             public int TileId;
+            public TileType.Kind Kind;
         }
 
         public class CreateModel
@@ -43,7 +45,7 @@ namespace GoVikingGame.Models
             public int woodProduction;
             public int goldProduction;
 
-            public long nextTick;
+            public DateTime nextTick;
 
         }
 

@@ -185,6 +185,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\GoVikingGame.css" />
     <Content Include="Scripts\GoVikingGame.js" />
+    <Content Include="Scripts\Tools.js" />
     <Content Include="Views\Client\Build.aspx" />
     <Content Include="Views\Client\Resources.aspx" />
     <Content Include="Views\Client\Train.aspx" />

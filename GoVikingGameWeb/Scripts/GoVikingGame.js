@@ -32,21 +32,27 @@
 
 
         return false;
-    });
+    });   
     
+    // Get info from game server
+    UpdateResources();
+    
+    window.setInterval(function () {
+        UpdateCountDownTick();
+    }, 1000);
+
 
 });
 
 
-function CloseBuildMenus() {
+var CloseBuildMenus = function() {
    
     $('.buildmenu').hide();
     
 }
 
-
   
-function Train(kind) {
+var Train = function(kind) {
 
     var service = '/Client/Train/?ImageFile=' + kind;
 
@@ -63,7 +69,7 @@ function Train(kind) {
                 console.log('Training will take ' + r.TrainingTicks + ' ticks');
                 CloseBuildMenus();
                 UpdateResources();
-                return false;
+                
             }
             else {
                 console.log(r.ErrorMessage);
@@ -72,11 +78,9 @@ function Train(kind) {
         }
     });
     
-    
-    return false;
 }
 
-function Build(kind) {
+var Build = function(kind) {
 
 
     var currentTile = $("#CurrentTileId").val();
@@ -95,21 +99,20 @@ function Build(kind) {
                 CloseBuildMenus();
                 UpdateResources();
                 $("#" + r.TileId).attr("src", "../../Content/Tiles/" + r.ImageFile);
+                $("#" + r.TileId).attr("alt", r);
                 
             }
 
-            return false;
         }
     });
 
-    return false;
 }
 
-function UpdateResources() {
+var gamenexttick;
 
+var UpdateResources = function()  {
 
     var service = '/Client/Resources';
-
 
     $.ajax({
         cache: false,
@@ -119,16 +122,33 @@ function UpdateResources() {
 
             var r = eval(data);            
             
-            $("#FoodResources").text(r.food + '(' + r.foodProduction + ')');
-            $("#GoldResources").text(r.gold + '(' + r.goldProduction + ')');
-            $("#StoneResources").text(r.stone + '(' + r.stoneProduction + ')');
-            $("#WoodResources").text(r.wood + '(' + r.woodProduction + ')');
+            $("#FoodResources").text(r.food + ' (+' + r.foodProduction + ')');
+            $("#GoldResources").text(r.gold + ' (+' + r.goldProduction + ')');
+            $("#StoneResources").text(r.stone + ' (+' + r.stoneProduction + ')');
+            $("#WoodResources").text(r.wood + ' (+' + r.woodProduction + ')');
             $("#WorkersResources").text(r.workers + "/" + r.maxWorkers);
 
-            $("#GameNextTick").text("T:" + r.nextTick);
+            gamenexttick = new Date(msDateToJSDate(r.nextTick));
 
-            return false;
+
         }
     });
-    return false;
+
+}
+
+
+var UpdateCountDownTick = function()
+{
+    if (gamenexttick) {
+        var now = new Date();
+        var displayTime = (gamenexttick - now) / 1000;
+        
+        if (displayTime < 0) {
+            displayTime = 0;
+            UpdateResources();
+        }
+
+
+        $("#GameNextTick").text("T:" + displayTime + "s");
+    }
 }

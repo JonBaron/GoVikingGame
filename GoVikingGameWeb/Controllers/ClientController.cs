@@ -48,7 +48,7 @@ namespace GoVikingGame.Controllers
                 buildresponse.ImageFile = tileToBuild.ImageFile;
                 buildresponse.BuildTimeTicks = tileToBuild.BuildingTime;
                 buildresponse.TileId = TileId;
-
+                buildresponse.Kind = kind;
             }
 
             return View(buildresponse);
@@ -77,7 +77,7 @@ namespace GoVikingGame.Controllers
 
         public ActionResult Resources()
         {
-            var resources = new ClientResponseModels.Resources();
+            var resources = new ClientResponseModels.Resources {nextTick = RunningGame.NextTick};
 
             Vik playerVik = PlayerVik;
             resources.food = playerVik.resources.food;
@@ -92,8 +92,6 @@ namespace GoVikingGame.Controllers
             resources.stoneProduction = playerVik.resources.stoneProduction;
             resources.goldProduction = playerVik.resources.goldProduction;
 
-            resources.nextTick = RunningGame.NextTick.Ticks;
-            
             return View(resources);
 
         }
