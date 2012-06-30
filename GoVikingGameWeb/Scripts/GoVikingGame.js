@@ -1,5 +1,10 @@
 ﻿$(document).ready(function () {
 
+
+    MakePrettyCost();
+
+
+
     $(".BuildMenuClose").click(function (event) {
 
         CloseBuildMenus();
@@ -42,7 +47,51 @@
     }, 1000);
 
 
+
 });
+
+
+var MakePrettyCost = function () {
+    
+
+
+    
+    $('#224').attr("src", "/Content/Tiles/Coast_1.png");
+    $('#227').attr("src", "/Content/Tiles/Coast_1.png");
+    $('#228').attr("src", "/Content/Tiles/Coast_1.png");
+    $('#235').attr("src", "/Content/Tiles/Coast_1.png");
+    $('#236').attr("src", "/Content/Tiles/Coast_1.png");
+    $('#214').attr("src", "/Content/Tiles/Coast_1.png");
+    $('#239').attr("src", "/Content/Tiles/Coast_1.png");
+    
+    
+
+    $('#134').attr("src", "/Content/Tiles/Coast_2.png");
+    
+    $('#150').attr("src", "/Content/Tiles/Coast_4.png");
+    $('#183').attr("src", "/Content/Tiles/Coast_4.png");
+    $('#199').attr("src", "/Content/Tiles/Coast_4.png");
+    
+    $('#166').attr("src", "/Content/Tiles/Coast_5.png");
+
+    $('#185').attr("src", "/Content/Tiles/Coast_6.png");
+    $('#201').attr("src", "/Content/Tiles/Coast_6.png");
+    
+
+    $('#221').attr("src", "/Content/Tiles/Coast_3.png");
+    $('#209').attr("src", "/Content/Tiles/Coast_3.png");
+    $('#213').attr("src", "/Content/Tiles/Coast_3.png");
+    
+
+    $('#169').attr("src", "/Content/Tiles/Coast_7.png");
+    $('#151').attr("src", "/Content/Tiles/Coast_7.png");
+    $('#210').attr("src", "/Content/Tiles/Coast_7.png");
+    $('#218').attr("src", "/Content/Tiles/Coast_7.png");
+    $('#222').attr("src", "/Content/Tiles/Coast_7.png");
+    
+
+}
+
 
 
 var CloseBuildMenus = function() {
@@ -79,6 +128,9 @@ var Train = function(kind) {
     });
     
 }
+
+
+
 
 var Build = function(kind) {
 

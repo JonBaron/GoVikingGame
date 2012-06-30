@@ -12,3 +12,4 @@ F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\bin\Debug\GameEngine.d
 F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\bin\Debug\GameEngine.pdb
 F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\obj\Debug\GameEngine.dll
 F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\obj\Debug\GameEngine.pdb
+F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\obj\Debug\GoVikingGameEngine.csprojResolveAssemblyReference.cache

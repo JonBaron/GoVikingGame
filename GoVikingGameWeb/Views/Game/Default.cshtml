@@ -21,19 +21,19 @@
     <span class="resources"><span id="GameNextTick"></span></span>
 
 </p>
+@*Figure out the image size of the tiles*@
 <style>
     table.mapview_computed {
         width:@(Model.MapRenderWidth)px;
-      }
+    }
 
     .mapview_computed img {
         width: @(Model.MapRenderWidth / Model.UserSessionMap.Count)px;
         height: @(Model.MapRenderWidth / Model.UserSessionMap.Count)px;
         float: left;
     }
-
-    
 </style>
+@*Render player map*@
 <table class="mapview_computed mapview">
     @foreach (var line in Model.UserSessionMap)
     {
@@ -48,10 +48,7 @@
         </tr>
     }
 </table>
-
-
 @*Create build menues for tiles*@
-
 @foreach (var tiletype in Model.TileTypes.Where(e => e.Buildable != null || e.CreateAble!=null))
 {
     

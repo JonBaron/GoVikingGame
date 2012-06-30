@@ -16,7 +16,7 @@ namespace GameEngine
         public List<WarriorType> WarriorTypes;
         public List<TileType> TileTypes;
         private int _tickNumber = 0;
-        public TimeSpan TickTime = new TimeSpan(0, 0, 10);
+        public TimeSpan TickTime = new TimeSpan(0, 0, 60);
         private DateTime _nextTick = DateTime.Now;
 
         public Game()
