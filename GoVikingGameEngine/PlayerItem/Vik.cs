@@ -39,7 +39,7 @@ namespace GameEngine.PlayerItem
         public void Tick()
         {
             TrainWariors();
-            resources.Produce();
+            resources.TickProduce();
         }
 
         public void MoveShips()

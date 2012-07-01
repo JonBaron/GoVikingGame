@@ -32,6 +32,8 @@
         height: @(Model.MapRenderWidth / Model.UserSessionMap.Count)px;
         float: left;
     }
+
+    
 </style>
 @*Render player map*@
 <table class="mapview_computed mapview">
@@ -52,7 +54,11 @@
 @foreach (var tiletype in Model.TileTypes.Where(e => e.Buildable != null || e.CreateAble!=null))
 {
     
+    
     <nav class="buildmenu" id="@tiletype.Name" style="display: none;">
+        
+
+        <img src="../../Content/ArrowPointer.png" class="tilepointer" />
         
         <h3>@tiletype.FriendlyName</h3>
         
@@ -63,7 +69,7 @@
         {
             WarriorType warriorType = Model.WarriorTypes.Where(e => e.kind.Equals(type)).FirstOrDefault();
 
-            <a onclick="Train('@warriorType.Name');return false;" class="button blue" style="width: 90%;">
+            <a onclick="Train('@warriorType.Name');return false;" class="button blue" style="width: 320px;">
                 <b>@warriorType.FriendlyName</b><br />
                 <span class="buildmenucost">Cost: @warriorType.FoodCost food @warriorType.WoodCost wood @warriorType.GoldCost gold
                 </span>
@@ -79,7 +85,7 @@
         {
             TileType tileType = Model.TileTypes.Where(e => e.kind.Equals(type)).FirstOrDefault();
 
-            <a onclick="Build('@tileType.Name');return false;" class="button orange" style="width: 90%;">
+            <a onclick="Build('@tileType.Name');return false;" class="button orange" style="width: 320px;">
                 <b>@tileType.FriendlyName</b><br />
                 <span class="buildmenucost">Cost: @tileType.FoodCost food @tileType.StoneCost stone @tileType.WoodCost wood @tileType.GoldCost gold
                 </span>
@@ -94,8 +100,8 @@
         {
             <span>Nothing to do here yet...</span><br/><br/>
         }
-        <a href="#" class="button grey BuildMenuClose" style="width: 90%; text-align: center;">
-            <b>Close</b>
+        <a href="#" class="button grey buildmenuclose" style="text-align: center; ">
+            Close
         </a>
     </nav>
     

@@ -26,7 +26,7 @@ namespace GameEngine.PlayerItem
             maxWorkers = 5;
         }
 
-        public void Produce()
+        public void TickProduce()
         {
 
             food += foodProduction;
