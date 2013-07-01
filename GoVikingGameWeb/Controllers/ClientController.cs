@@ -35,7 +35,8 @@ namespace GoVikingGame.Controllers
         }
 
 
-        public ActionResult Build(TileType.Kind kind, int TileId)
+        
+        public JsonResult Build(TileType.Kind kind, int TileId)
         {
             TileType tileToBuild = RunningGame.TileTypes.Where(e => e.kind.Equals(kind)).First();
 
@@ -50,12 +51,12 @@ namespace GoVikingGame.Controllers
                 buildresponse.TileId = TileId;
                 buildresponse.Kind = kind;
             }
-
-            return View(buildresponse);
+            
+            return Json(buildresponse, JsonRequestBehavior.AllowGet);
         }
 
 
-        public ActionResult Train(WarriorType.Kind kind)
+        public JsonResult Train(WarriorType.Kind kind)
         {
             WarriorType warriortoTrain = RunningGame.WarriorTypes.Where(e => e.kind.Equals(kind)).First();
 
@@ -64,18 +65,18 @@ namespace GoVikingGame.Controllers
             var response = new ClientResponseModels.CreateModel();
             response.Ok = trainingStarted;
             response.TrainingTicks = warriortoTrain.TrainingTime;
-            return View(response);
+            return Json(response, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Message(string message)
+        public JsonResult Message(string message)
         {
             var response = new ClientResponseModels.MessageModel();
             response.response = "server klokka " + DateTime.Now + " melding var '" + message + "'";
-            return View(response);
+            return Json(response, JsonRequestBehavior.AllowGet);
         }
 
 
-        public ActionResult Resources()
+        public JsonResult Resources()
         {
             var resources = new ClientResponseModels.Resources {nextTick = RunningGame.NextTick};
 
@@ -92,7 +93,7 @@ namespace GoVikingGame.Controllers
             resources.stoneProduction = playerVik.resources.stoneProduction;
             resources.goldProduction = playerVik.resources.goldProduction;
 
-            return View(resources);
+            return Json(resources, JsonRequestBehavior.AllowGet);
 
         }
 

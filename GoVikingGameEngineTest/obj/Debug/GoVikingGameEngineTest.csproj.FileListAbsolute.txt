@@ -12,3 +12,10 @@ F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngineTest\bin\Debug\GameEngi
 F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngineTest\obj\Debug\GoVikingGameEngineTest.csprojResolveAssemblyReference.cache
 F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngineTest\obj\Debug\GoVikingGameEngineTest.dll
 F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngineTest\obj\Debug\GoVikingGameEngineTest.pdb
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameEngineTest\bin\Debug\GoVikingGameEngineTest.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameEngineTest\bin\Debug\GoVikingGameEngineTest.pdb
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameEngineTest\bin\Debug\GameEngine.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameEngineTest\bin\Debug\GameEngine.pdb
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameEngineTest\obj\Debug\GoVikingGameEngineTest.csprojResolveAssemblyReference.cache
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameEngineTest\obj\Debug\GoVikingGameEngineTest.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameEngineTest\obj\Debug\GoVikingGameEngineTest.pdb

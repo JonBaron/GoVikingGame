@@ -47,3 +47,24 @@ F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameWeb\bin\System.Web.WebPages.R
 F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameWeb\obj\Debug\GoVikingGameWeb.csprojResolveAssemblyReference.cache
 F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameWeb\obj\Debug\GoVikingGame.dll
 F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameWeb\obj\Debug\GoVikingGame.pdb
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\GoVikingGame.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\GoVikingGame.pdb
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\GameEngine.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.Helpers.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.Mvc.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.Razor.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.Routing.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.Services.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.WebPages.Deployment.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.WebPages.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.WebPages.Razor.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\GameEngine.pdb
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.Mvc.xml
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.Razor.xml
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.WebPages.xml
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.Helpers.xml
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.WebPages.Deployment.xml
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\bin\System.Web.WebPages.Razor.xml
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\obj\Debug\GoVikingGameWeb.csprojResolveAssemblyReference.cache
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\obj\Debug\GoVikingGame.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameWeb\obj\Debug\GoVikingGame.pdb

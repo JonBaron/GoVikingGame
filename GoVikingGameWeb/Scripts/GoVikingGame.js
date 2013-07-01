@@ -101,7 +101,7 @@ var Build = function(kind) {
         url: service,
         error: function (xhr, status, error) { console.log(xhr); console.log(status); console.log(error); },
         success: function (data, status, xhr) {
-
+            
             var r = eval(data);
 
             if (r.Ok === true) {

@@ -12,3 +12,8 @@ F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\bin\Debug\GameEngine.d
 F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\bin\Debug\GameEngine.pdb
 F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\obj\Debug\GameEngine.dll
 F:\Data Prosjekter\GoVikingGame\Source\GoVikingGameEngine\obj\Debug\GameEngine.pdb
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameEngine\bin\Debug\GameEngine.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameEngine\bin\Debug\GameEngine.pdb
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameEngine\obj\Debug\GoVikingGameEngine.csprojResolveAssemblyReference.cache
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameEngine\obj\Debug\GameEngine.dll
+C:\Users\jon.hermansen\Documents\GitHub\GoVikingGame\GoVikingGameEngine\obj\Debug\GameEngine.pdb
