@@ -83,8 +83,10 @@ textarea
 -----------------------------------------------------------*/
 
 .logo {
+
     width: 2048px;
-    text-align: center;
+    position:absolute;    
+    text-align: left;
     font-family: Garamond, serif;
     text-wrap: none;
     line-height: 0em;

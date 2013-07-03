@@ -99,7 +99,7 @@ namespace GoVikingGameWeb
             //    map =  GameInititializer.defaultMap;
             //}
 
-            gameEngine.AddPlayer(Session.SessionID, "test", "no name",GameInititializer.CreateMap(GameInititializer.defaultMap, gameEngine.TileTypes));
+            gameEngine.AddPlayer(Session.SessionID, "test", "no name", GameInititializer.CreateMap(GameInititializer.DefaultMap, GameInititializer.DefaultMapWidth, GameInititializer.DefaultMapHeight, gameEngine.TileTypes));
 
         }
     }

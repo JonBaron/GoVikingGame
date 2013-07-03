@@ -11,13 +11,49 @@ namespace GameEngine
 
         public static List<WarriorType> InitWarriorTypes()
         {
-            List<WarriorType> types = new List<GameTypes.WarriorType>();
+            List<WarriorType> types = new List<WarriorType>
+                {
+                    new WarriorType
+                        {
+                            kind = WarriorType.Kind.Worker,
+                            TrainingTime = 3,
+                            Description = "Workers is used for farming, lumber cutting and other work. They are lousy fighers, and usually dies if attacked.",
+                            FoodCost = 100,
+                            AttackBonus = 0,
+                            Strength = 1
+                        },
+                    new WarriorType
+                        {
+                            kind = WarriorType.Kind.Axeman,
+                            TrainingTime = 3,
+                            Description = "Agressive but poorly equitet warrior.",
+                            FoodCost = 100,
+                            AttackBonus = 1.25,
+                            Strength = 3
+                        },
+                    new WarriorType
+                        {
+                            kind = WarriorType.Kind.Archer,
+                            TrainingTime = 3,
+                            Description = "With their bow and arrow they are good defenders of the village",
+                            FoodCost = 100,
+                            WoodCost = 50,
+                            DefenceBonus = 1.25,
+                            Strength = 3
+                        },
+                    new WarriorType
+                        {
+                            kind = WarriorType.Kind.Swordman,
+                            TrainingTime = 3,
+                            Description = "With swords and armor these warriors are good allround warriors.",
+                            FoodCost = 200,
+                            GoldCost = 50,
+                            AttackBonus = 1.25,
+                            Strength = 5
+                        }
+                };
 
             // TODO: Rip units from aoe2
-            types.Add(new WarriorType() { kind = WarriorType.Kind.Worker,   TrainingTime = 3, Description = "Workers is used for farming, lumber cutting and other work. They are lousy fighers, and usually dies if attacked.", FoodCost = 100, AttackBonus = 0, Strength = 1 });
-            types.Add(new WarriorType() { kind = WarriorType.Kind.Axeman,   TrainingTime = 3, Description = "Agressive but poorly equitet warrior.", FoodCost = 100, AttackBonus = 1.25, Strength = 3 });
-            types.Add(new WarriorType() { kind = WarriorType.Kind.Archer,   TrainingTime = 3, Description = "With their bow and arrow they are good defenders of the village", FoodCost = 100, WoodCost = 50, DefenceBonus = 1.25, Strength = 3 });
-            types.Add(new WarriorType() { kind = WarriorType.Kind.Swordman, TrainingTime = 3, Description = "With swords and armor these warriors are good allround warriors.", FoodCost = 200, GoldCost = 50, AttackBonus = 1.25, Strength = 5 });
 
             return types;
 
@@ -25,49 +61,48 @@ namespace GameEngine
 
         public static List<TileType> InitBuildingTypes()
         {
-            List<TileType> gameTileTypes = new List<TileType>();
+            var gameTileTypes = new List<TileType>();
             
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Ocean       });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Mountain    });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.The_Ship    });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.The_Long_House, CreateAble = new WarriorType.Kind[] { WarriorType.Kind.Worker }});
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Hill,           Buildable = new TileType.Kind[] { TileType.Kind.Tower}});
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Grass,          Buildable = new TileType.Kind[] { TileType.Kind.Barracks, TileType.Kind.Archery, TileType.Kind.Farm, TileType.Kind.Tower , TileType.Kind.House } });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Forrest,        Buildable = new TileType.Kind[] { TileType.Kind.Lumber_camp }});
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Gold,           Buildable = new TileType.Kind[] { TileType.Kind.Gold_Mine } });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Stone,          Buildable = new TileType.Kind[] { TileType.Kind.Quarry }  });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.House,          BuildingTime = 1, WoodCost = 100, Description = "Housing for workers." });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Farm,           BuildingTime = 1, WoodCost  = 200, WorkerCost = 2, FoodProduction = 10, Description = "Farmers create 10 food per tick."} );
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Lumber_camp,    BuildingTime = 1, StoneCost = 200, WoodProduction = 10, WorkerCost = 2, Description = "Workers create lumber for construction." });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Quarry,         BuildingTime = 1, WoodCost = 300, StoneProduction = 10, WorkerCost = 3, Description = "Works creae stone blocks for buildings." });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Gold_Mine,      BuildingTime = 1, StoneCost = 200, WoodCost = 200, WorkerCost = 4, GoldProduction = 10 });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Barracks,       BuildingTime = 1, StoneCost = 200, WoodCost = 200, Buildable = new TileType.Kind[] { TileType.Kind.Barracks_2 }, CreateAble = new WarriorType.Kind[] { WarriorType.Kind.Swordman }, Description = "A building where warriors are trained." });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Barracks_2,     BuildingTime = 1, StoneCost = 500, WoodCost = 500, CreateAble = new WarriorType.Kind[] { WarriorType.Kind.Axeman, WarriorType.Kind.Swordman } });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Archery,        BuildingTime = 1, StoneCost = 200, WoodCost = 200, CreateAble = new WarriorType.Kind[] { WarriorType.Kind.Archer }, Description = "Archers are trained and equited here." });
-            gameTileTypes.Add(new TileType() { kind = TileType.Kind.Tower,          BuildingTime = 1, StoneCost = 500, WoodCost = 100, Description = "Increases the defence of the village." });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Ocean       });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Mountain    });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.The_Ship    });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.The_Long_House, CreateAble = new[] { WarriorType.Kind.Worker }});
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Hill,           Buildable = new[] { TileType.Kind.Tower}});
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Grass,          Buildable = new[] { TileType.Kind.Barracks, TileType.Kind.Archery, TileType.Kind.Farm, TileType.Kind.Tower , TileType.Kind.House } });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Forrest,        Buildable = new[] { TileType.Kind.Lumber_camp }});
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Gold,           Buildable = new[] { TileType.Kind.Gold_Mine } });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Stone,          Buildable = new[] { TileType.Kind.Quarry }  });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.House,          BuildingTime = 1, WoodCost = 100, Description = "Housing for workers." });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Farm,           BuildingTime = 1, WoodCost  = 200, WorkerCost = 2, FoodProduction = 10, Description = "Farmers create 10 food per tick."} );
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Lumber_camp,    BuildingTime = 1, StoneCost = 200, WoodProduction = 10, WorkerCost = 2, Description = "Workers create lumber for construction." });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Quarry,         BuildingTime = 1, WoodCost = 300, StoneProduction = 10, WorkerCost = 3, Description = "Works creae stone blocks for buildings." });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Gold_Mine,      BuildingTime = 1, StoneCost = 200, WoodCost = 200, WorkerCost = 4, GoldProduction = 10 });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Barracks,       BuildingTime = 1, StoneCost = 200, WoodCost = 200, Buildable = new[] { TileType.Kind.Barracks_2 }, CreateAble = new[] { WarriorType.Kind.Swordman }, Description = "A building where warriors are trained." });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Barracks_2,     BuildingTime = 1, StoneCost = 500, WoodCost = 500, CreateAble = new[] { WarriorType.Kind.Axeman, WarriorType.Kind.Swordman } });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Archery,        BuildingTime = 1, StoneCost = 200, WoodCost = 200, CreateAble = new[] { WarriorType.Kind.Archer }, Description = "Archers are trained and equited here." });
+            gameTileTypes.Add(new TileType { kind = TileType.Kind.Tower,          BuildingTime = 1, StoneCost = 500, WoodCost = 100, Description = "Increases the defence of the village." });
 
             return gameTileTypes;
         }
 
 
-        public static Map CreateMap(int[] binMap, List<TileType> gameTileTypes)
+        public static Map CreateMap(int[] binMap, int mapSizeHeight, int mapSizeWidth, List<TileType> gameTileTypes)
         {
 
 
-            int size = (int)Math.Sqrt(binMap.Length);
+            //int size = (int)Math.Sqrt(binMap.Length);
 
             Map map = new Map();
 
-
             int i=0;
-            for (int y = 0;y < size; y++)
+            for (int y = 0;y < mapSizeHeight; y++)
             {
 //                map[y] = new List<TileType>();
                 map.Add(new List<PlayerTile>());
-                for (int x = 0; x < size; x++)
+                for (int x = 0; x < mapSizeWidth; x++)
                 {
 
-                    TileType t = null;
+                    TileType t;
 
                     int binId = binMap[i];
                     switch (binId)
@@ -203,7 +238,12 @@ namespace GameEngine
                           };
 */
 
-        public static int[] defaultMap =
+
+        public const int DefaultMapWidth = 16;
+        public const int DefaultMapHeight = 16;
+
+
+        public static int[] DefaultMap =
                           {
                             5,5,5,5,4,5,5,5,5,5,5,1,5,5,5,5,
                             5,4,7,5,3,4,4,4,5,4,4,3,3,4,4,5,

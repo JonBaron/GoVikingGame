@@ -37,10 +37,10 @@ namespace GameEngine.PlayerItem
 
         public void UpdateProduction(int food, int stone, int wood, int gold)
         {
-            foodProduction = +food;
-            stoneProduction = +stone;
-            woodProduction = +wood;
-            goldProduction = +gold;
+            foodProduction += food;
+            stoneProduction += stone;
+            woodProduction += wood;
+            goldProduction += gold;
         }
 
 

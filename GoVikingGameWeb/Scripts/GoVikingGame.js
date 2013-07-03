@@ -155,7 +155,7 @@ var UpdateCountDownTick = function()
             UpdateResources();
         }
 
-        var s = displayTime.toString();
+        var s = (displayTime+1).toString();
         s = s.substring(0,s.indexOf('.'));
         
         $("#GameNextTick").text("Next tick:" + s + "s");
